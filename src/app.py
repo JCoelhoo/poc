@@ -12,8 +12,9 @@ table = dynamodb.Table(os.environ['TABLE_NAME'])
 
 def lambda_handler(event, context):
     now = datetime.datetime.now()
+    id = uuid.uuid4()
     item = {
-        'id': str(uuid.uuid4()),
+        'id': str(id),
         'creationTime': str(now.timestamp())
     }
 
@@ -23,7 +24,7 @@ def lambda_handler(event, context):
         )
         return {
             "statusCode": 200,
-            "body": json.dumps(item),
+            "body": json.dumps(str(id)),
         }
     except Exception as e:
         print(e)
