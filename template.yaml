@@ -33,7 +33,7 @@ Resources:
       # https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/automating-updates-to-serverless-apps.html
       AutoPublishAlias: live
       DeploymentPreference:
-        Type: AllAtOnce
+        Type: Canary10Percent10Minutes
 
   DynamoDBTable:
     Type: AWS::DynamoDB::Table
