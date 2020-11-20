@@ -11,8 +11,6 @@ dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table(os.environ['TABLE_NAME'])
 
 def lambda_handler(event, context):
-    raise Exception('Error')
-    
     now = datetime.datetime.now()
     id = uuid.uuid4()
     item = {
